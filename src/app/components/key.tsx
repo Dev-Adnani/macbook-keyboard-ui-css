@@ -31,8 +31,8 @@ const Key = ({ label, className, secondaryLabel }: KeyProps) => {
         )}
         <span
           className={cn(
-            "text-[10px] leading-none",
-            hasIcon && "mt-1",
+            "text-[8px] leading-none",
+            hasIcon && "mt-2",
             hasSecondaryLabel && !hasIcon && "mt-2"
           )}
         >

@@ -1,84 +1,30 @@
 import React from "react";
-import Key from "./components/key";
-
-const keyStyles = new Map<string, string>([
-  ["cmd", "shadow-blue-600 text-white transform: translateY(-2px)"],
-  ["V", "shadow-blue-600 transform: translateY(-2px)"],
-  [" ", "col-span-5 "],
-  ["tab", "col-span-2 items-end justify-start p-1"],
-  ["delete", "col-span-2"],
-  ["caps lock", "col-span-2 col-span-2 items-end justify-start p-1"],
-  ["esc", "col-span-2 items-end justify-start p-1"],
-  ["shift", "col-span-2 col-span-2 items-end justify-start p-1"],
-  ["shift ", "col-span-3 items-end justify-end p-1"],
-  ["return", "col-span-2 items-end justify-start p-1"],
-]);
+import Keyboard from "./components/keyboard";
 
 export default function Home() {
-  const keyboard: string[][] = [
-    [
-      "esc",
-      "F1",
-      "F2",
-      "F3",
-      "F4",
-      "F5",
-      "F6",
-      "F7",
-      "F8",
-      "F9",
-      "F10",
-      "F11",
-      "F12",
-      "",
-    ],
-    ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "delete"],
-    ["tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"],
-    [
-      "caps lock",
-      "A",
-      "S",
-      "D",
-      "F",
-      "G",
-      "H",
-      "J",
-      "K",
-      "L",
-      ";",
-      "'",
-      "return",
-    ],
-    ["shift", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "shift "],
-    [
-      "fn",
-      "control",
-      "option",
-      "cmd",
-      " ",
-      "cmd ",
-      "option",
-      "←",
-      "↑",
-      "↓",
-      "→",
-    ],
-  ];
-
   return (
-    <div className="max-w-6xl mx-auto flex-col items-center justify-center h-full w-full">
-      <div className="max-w-4xl bg-zinc-800 h-100 border border-neutral-900 rounded-md">
-        {keyboard.map((row, rowIndex) => (
-          <div key={rowIndex} className="grid grid-cols-15 gap-2 p-2">
-            {row.map((key, keyIndex) => (
-              <Key
-                key={keyIndex}
-                label={key}
-                className={keyStyles.get(key) || ""}
-              />
-            ))}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black flex flex-col items-center justify-center p-8">
+      {/* Header Section */}
+      <div className="text-center mb-12">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+          Mac Keyboard
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-300 mb-2">
+          Experience the authentic MacBook keyboard
+        </p>
+        <p className="text-sm text-gray-400">Built by Dev Adnani</p>
+      </div>
+
+      {/* Keyboard Section */}
+      <div className="flex flex-col items-center space-y-8">
+        <div className="relative">
+          {/* Glow effect behind keyboard */}
+          <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-3xl transform scale-110"></div>
+          {/* Keyboard container */}
+          <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-2xl shadow-2xl border border-gray-700">
+            <Keyboard />
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
