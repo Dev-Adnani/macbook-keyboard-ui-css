@@ -2,16 +2,21 @@ import React from "react";
 import Key from "./key";
 
 const keyStyles = new Map<string, string>([
-  ["cmd", "shadow-blue-600 text-white transform: translateY(-2px)"],
-  ["V", "shadow-blue-600 transform: translateY(-2px)"],
-  [" ", "col-span-5"],
-  ["tab", "col-span-2 items-end justify-start p-1"],
-  ["delete", "col-span-2 items-end justify-end p-1"],
-  ["caps lock", "col-span-2 col-span-2 items-end justify-start p-1"],
-  ["esc", "col-span-2 items-end justify-start p-1"],
-  ["shift", "col-span-2 col-span-2 items-end justify-start p-1"],
-  ["shift ", "col-span-3 items-end justify-end p-1"],
-  ["return", "col-span-2 items-end justify-start p-1"],
+  ["cmd", "flex-[1.2] shadow-red-600 text-white transform: translateY(-2px)"],
+  ["V", "shadow-red-600 transform: translateY(-2px)"],
+  [" ", "flex-[8] w-32"], // Spacebar - 5x wider
+  ["tab", "flex-[1.5] items-end justify-start p-1"], // 1.5x width
+  ["delete", "flex-[1.2] items-end justify-end p-1"], // 1.5x width
+  ["caps lock", "flex-[2.3] items-end justify-start p-1"], // 1.8x width
+  ["esc", "flex-[1.3] items-end justify-start p-1"], // 1.3x width
+  ["shift", "flex-[2.5] items-end justify-start p-1"], // 2x width (left shift)
+  ["shift ", "flex-[2.5] items-end justify-end p-1"], // 2.5x width (right shift)
+  ["return", "flex-[2] items-end justify-start p-1"], // 2x width
+  ["\\", "flex-[1.5] "], // Backslash slightly wider
+  ["fn", "flex-[1.2] "], // Function key smaller
+  ["control", "flex-[1.2] w-30"], // Control slightly wider
+  ["option", "flex-[1.2] w-30"], // Option slightly wider
+  ["cmd ", "flex-[1.2] w-30"], // Right cmd slightly wider
 ]);
 
 export default function Keyboard() {
@@ -30,7 +35,7 @@ export default function Keyboard() {
       "F10",
       "F11",
       "F12",
-      "",
+      "  ",
     ],
     ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "delete"],
     ["tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"],
@@ -55,35 +60,36 @@ export default function Keyboard() {
 
   return (
     <div className="max-w-6xl mx-auto flex-col items-center justify-center h-full w-full">
-      <div className="max-w-4xl bg-transparent h-100  rounded-md">
+      <div className="max-w-4xl bg-transparent h-100 rounded-md">
         {keyboard.map((row, rowIndex) => (
-          <div key={rowIndex} className="grid grid-cols-15 gap-2 p-2">
+          <div key={rowIndex} className="flex gap-2 p-2 w-full">
             {row.map((key, keyIndex) =>
               key === "ak" ? (
                 //  T shape for keys
                 <div
                   key={keyIndex}
-                  className="col-span-4 flex flex-col items-start justify-center gap-1 rounded-md p-1"
+                  className="flex flex-col items-start justify-center gap-1 rounded-md p-1 flex-[3]"
                 >
                   {/* Top row - Up arrow positioned above middle key */}
-                  <div className="flex w-full">
-                    <div className="w-19"></div> {/* Space for left arrow */}
-                    <div className="w-[-2px]"></div> {/* Gap space */}
-                    <Key label={"↑"} className="h-5 w-18 rounded-sm" />
+                  <div className="flex w-full justify-center">
+                    <Key label={"↑"} className="h-5 w-8 rounded-sm" />
                   </div>
 
                   {/* Bottom row - Left, Down, Right arrows in perfect line */}
                   <div className="flex gap-1 w-full">
-                    <Key label={"←"} className="h-5 w-24 rounded-sm" />
-                    <Key label={"↓"} className="h-5 w-24 rounded-sm" />
-                    <Key label={"→"} className="h-5 w-24 rounded-sm" />
+                    <Key label={"←"} className="h-5 flex-1 rounded-sm" />
+                    <Key label={"↓"} className="h-5 flex-1 rounded-sm" />
+                    <Key label={"→"} className="h-5 flex-1 rounded-sm" />
                   </div>
                 </div>
+              ) : key === "" ? (
+                // Empty space for function row
+                <div key={keyIndex} className="flex-1 min-w-0" />
               ) : (
                 <Key
                   key={keyIndex}
                   label={key}
-                  className={keyStyles.get(key) || ""}
+                  className={`flex-1 min-w-0 ${keyStyles.get(key) || ""}`}
                 />
               )
             )}
