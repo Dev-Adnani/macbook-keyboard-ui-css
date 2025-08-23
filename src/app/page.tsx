@@ -23,7 +23,7 @@ export default function Home() {
 
           {/* Keyboard container */}
           <div className="relative bg-gradient-to-b from-gray-800 to-gray-900 p-3 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700 overflow-x-auto">
-            <div className="min-w-[800px] sm:min-w-0">
+            <div className="min-w-[800px] sm:min-w-0 mx-auto">
               <Keyboard />
             </div>
           </div>
