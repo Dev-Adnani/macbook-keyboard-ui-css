@@ -27,11 +27,11 @@ const Key = ({ label, className, secondaryLabel }: KeyProps) => {
       <div className="flex flex-col items-center justify-center">
         {hasIcon && svgIcon}
         {hasSecondaryLabel && !hasIcon && (
-          <span className="text-[8px]  leading-none">{topText}</span>
+          <span className="text-[10px]  leading-none">{topText}</span>
         )}
         <span
           className={cn(
-            "text-[8px] leading-none",
+            "text-[10px] leading-none",
             hasIcon && "mt-2",
             hasSecondaryLabel && !hasIcon && "mt-2"
           )}
