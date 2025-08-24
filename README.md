@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍎 Mac Keyboard
 
-## Getting Started
+An authentic MacBook keyboard replica built with React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## ✨ Features
+
+- 🎯 **Authentic Mac Layout** - Real MacBook keyboard proportions
+- ⌨️ **Function Keys** - F1-F12 keys with Mac icons
+- 🎨 **Interactive Design** - Hover effects and animations
+- 📱 **Mobile Responsive** - Works on all screen sizes
+- 🎭 **T-Shape Arrow Keys** - Authentic Mac arrow layout
+
+## 🚀 Demo
+
+**[Live Demo](https://mc.devadnani.com)**
+
+## 🛠️ Setup
 
 ```bash
+git clone https://github.com/Dev-Adnani/mac-kyboard.git
+cd mac-kyboard
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 14** - React framework
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **CSS Flexbox** - Layout system
 
-## Learn More
+## 🎨 How It Works
 
-To learn more about Next.js, take a look at the following resources:
+The keyboard uses **CSS Flexbox** for proportional sizing:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```tsx
+// Spacebar is 8x wider than normal keys
+[" ", "flex-[8]"][
+  // Tab key is 1.5x wider
+  ("tab", "flex-[1.5]")
+];
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This allows fractional ratios and authentic Mac proportions.
 
-## Deploy on Vercel
+## 📱 Responsive Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Mobile**: Horizontal scroll, compact layout
+- **Tablet**: Two-column features
+- **Desktop**: Full three-column layout
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+Contributions welcome! Fork, create a feature branch, and submit a PR.
+
+## 👤 Author
+
+**Dev Adnani**
+
+- GitHub: [@Dev-Adnani](https://github.com/Dev-Adnani)
+
+---
+
+<div align="center">
+  <p>⭐ Star this repo if you found it helpful!</p>
+</div>
